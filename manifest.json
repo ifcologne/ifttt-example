@@ -11,7 +11,7 @@
     "setup": "scripts/setup.js"
   },
   "configuration": {
-    "collection": {
+    "collectionname": {
       "type": "string",
       "default": "ifttt",
       "description": "Name of the collection.",
