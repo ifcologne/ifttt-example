@@ -2,6 +2,6 @@
 const { db } = require("@arangodb");
 const { context } = require("@arangodb/locals");
 
-if (!db._collection(context.configuration.collectionname) && !context.configuration.collectionname === "") {
+if (!db._collection(context.configuration.collectionname)) {
   db._createDocumentCollection(context.configuration.collectionname);
 }
