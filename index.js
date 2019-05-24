@@ -12,7 +12,7 @@ const credentials = `${context.configuration.username}:${
   context.configuration.password
 }`;
 
-if (!db._collection(context.configuration.collectionname)) {
+if (!db._collection(context.configuration.collectionname) && !context.configuration.collectionname === "") {
   db._createDocumentCollection(context.configuration.collectionname);
 }
 
