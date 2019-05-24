@@ -2,6 +2,7 @@
 const joi = require("joi");
 const { context } = require("@arangodb/locals");
 const createRouter = require("@arangodb/foxx/router");
+const db = require('@arangodb').db;
 const router = createRouter();
 context.use(router);
 
