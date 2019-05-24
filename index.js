@@ -30,6 +30,4 @@ router
   .post("/hook", (req, res) => {
     collection.save(req.body);
     res.status(204);
-  })
-  .body(
-  );
+  });
