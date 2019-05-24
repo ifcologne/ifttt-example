@@ -5,7 +5,7 @@ const createRouter = require("@arangodb/foxx/router");
 const router = createRouter();
 context.use(router);
 
-const tweets = context.collection("tweets");
+const collection = `${context.configuration.collection}`;
 
 const credentials = `${context.configuration.username}:${
   context.configuration.password
@@ -23,13 +23,8 @@ router.use((req, res, next) => {
 
 router
   .post("/hook", (req, res) => {
-    tweets.save(req.body);
+    collection.save(req.body);
     res.status(204);
   })
   .body(
-    joi.object().keys({
-      user: joi.string().required(),
-      url: joi.string().required(),
-      text: joi.string().required()
-    })
   );
