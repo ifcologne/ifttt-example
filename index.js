@@ -5,11 +5,15 @@ const createRouter = require("@arangodb/foxx/router");
 const router = createRouter();
 context.use(router);
 
-const collection = `${context.configuration.collection}`;
+const collection = `${context.configuration.collectionname}`;
 
 const credentials = `${context.configuration.username}:${
   context.configuration.password
 }`;
+
+if (!db._collection(context.configuration.collectionname)) {
+  db._createDocumentCollection(context.configuration.collectionname);
+}
 
 router.use((req, res, next) => {
   const header = req.headers.authorization;
