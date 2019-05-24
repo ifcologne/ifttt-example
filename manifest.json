@@ -11,6 +11,12 @@
     "setup": "scripts/setup.js"
   },
   "configuration": {
+    "collection": {
+      "type": "string",
+      "default": "ifttt",
+      "description": "Name of the collection.",
+      "required": true
+    },
     "username": {
       "type": "string",
       "default": "ifttt",
