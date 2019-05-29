@@ -6,7 +6,7 @@ const db = require('@arangodb').db;
 const router = createRouter();
 context.use(router);
 
-const collection = `${context.configuration.collectionname}`;
+const col = context.collection(`${context.configuration.collectionname}`);
 
 const credentials = `${context.configuration.username}:${
   context.configuration.password
@@ -24,6 +24,6 @@ router.use((req, res, next) => {
 
 router
   .post("/hook", (req, res) => {
-    collection.save(req.body);
+    col.save(req.body);
     res.status(204);
   });
